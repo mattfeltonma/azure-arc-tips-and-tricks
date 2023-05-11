@@ -1,6 +1,5 @@
-## Implementation
-
-### Private Link Integration
+# Azure Arc Connected Machine Agent
+## Design and Deployment Considerations
 
 #### Decisions
 ##### General
