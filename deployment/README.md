@@ -102,7 +102,7 @@
 
 ## Best Practices
 
-1. There are a wide range of extensions available for onboarded machines. This author recommends governing which extensions can be deployed using the [allow and block list capability of the Azure Connected Machine Agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls). 
+1. There are a wide range of extensions available for onboarded machines. This author recommends governing which extensions can be deployed using the [allow and block list capability of the Azure Connected Machine Agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls)
    
 	Some Azure Arc extensions allow for the Azure management plane to modify the operating system of the onboarded server. These extensions include the Custom Script and Hybrid Runbook extensions. If this is not desired, these extensions should not be blocked from being deployed.
 	
