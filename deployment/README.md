@@ -1,28 +1,28 @@
 # Azure Arc Connected Machine Agent
-## Design and Deployment Considerations
+# Design and Deployment Considerations
 
-#### Decisions
-##### General
+## Decisions
+### General
 1. Decide [which features (and corresponding extensions) of the Azure Arc for Servers](https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview#supported-cloud-operations) offering that you will use.
    
 2. Decide which subscription, region, and resource group the Azure Arc Server resources will be stored in.
 
-##### Connectivity
+### Connectivity
 1. Decide if you will use [Private Link connectivity](https://learn.microsoft.com/en-us/azure/azure-arc/servers/private-link-security) for the Azure Arc Connected Machine agent.
    
-##### Governance
+### Governance
 1. Decide if you will use [Azure Policy to automatically install additional extensions such as the Azure Monitor Agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/concept-log-analytics-extension-deployment#use-azure-policy).
    
 2. Decide if you will use [automatic or manual](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-automatic-vm-extension-upgrade?tabs=azure-portal) extension upgrades.
    
 3. Decide if you will use an allow or block list to govern which extensions can be deployed to the Azure Arc Machiens
 
-##### Deployment
+### Deployment
 1. Decide [how you will deploy the Azure Arc Connected Machine Agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/deployment-options#onboarding-methods). It is recommended to deploy the agent using the [deployment script generated](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-service-principal) by the Azure Portal. This script can then be deployed via custom automation or an [enterprise solution like SCCM](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-configuration-manager-custom-task#create-a-task-sequence).  The agent must be deployed using an administrator for Windows and a root account for Linux. 
    
 	**NOTE - The service principal credentials are stored in the script by default. It is recommended to store and retrieve this credential from an enterprise secret management solution if available.**
    
-#### Prerequisites
+## Prerequisites
 1. Validate the operating system of the machines you are planning to onboard is a [supported operating system for Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-operating-systems). 
    
 2. Validate that the [feature you wish to use is supported](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-vm-extensions#operating-system-extension-availability) on the operating system.
@@ -34,11 +34,10 @@
 5. Validate if the machines being onboarded use a proxy. If the machines do use a proxy, then determine if the proxy requires authentication. If so, you will need to bypass the authentication for the required Azure Arc endpoints. [The Azure Arc Connected Machine Agent does not support authenticated proxies](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent?tabs=windows#update-or-remove-proxy-settings)
 
 
-#### Setup of On-premises Environment
+## Setup of On-premises Environment
 1. If you are using Windows Active Directory Restricted Groups to restrict which security principals are granted the "Log On as a Service" user right, [you must ensure that "NT SERVICE\\himds" is included as a security principal with this user right](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#agent-security-and-permissions). This local machine identity is used by the Hybrid Instance Metadata Service.
 
-#### Setup of Azure Resources
-##### General
+## Setup of Azure Resources
 1. [Create an Azure AD Service Principal](https://learn.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli) which will be used to authenticate to Azure to onboard the machine to Azure Arc. This machine should be granted the Azure RBAC role named Azure Connected Machine Onboarding.
    
 2. **Private Link Only** [Create Private DNS Zones for the following zones](https://learn.microsoft.com/en-us/azure/azure-arc/servers/private-link-security#dns-configuration-using-azure-integrated-private-dns-zones)
@@ -65,7 +64,7 @@
 	* [Generate onboarding script when not using Private Link connectivity model](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-portal#generate-the-installation-script-from-the-azure-portal
 	* **Private Link Only** [Generate onboarding script when using Private Link connectivity model](https://learn.microsoft.com/en-us/azure/azure-arc/servers/private-link-security#configure-a-new-azure-arc-enabled-server-to-use-private-link)
 
-### Installation of Azure Connected Machine Agent
+## Installation of Azure Connected Machine Agent
 1. If the machine uses a proxy to communicate with the Internet, you will need to modify the onboarding script to include the code snippet below. This code snippet should be placed before the azcmagent.exe connect command.
 
 	* Windows
@@ -101,7 +100,7 @@
 
 5. Begin to deploy the machine in batches using one of the [non-interactive methods included](https://learn.microsoft.com/en-us/azure/azure-arc/servers/deployment-options#onboarding-methods) in the documentation and validate the machines are appearing in the Portal and reporting as connected.
 
-### Best Practices
+## Best Practices
 
 1. There are a wide range of extensions available for onboarded machines. This author recommends governing which extensions can be deployed using the [allow and block list capability of the Azure Connected Machine Agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls). 
    
