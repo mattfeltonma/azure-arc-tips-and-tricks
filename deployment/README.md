@@ -15,7 +15,7 @@
    
 2. Decide if you will use [automatic or manual](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-automatic-vm-extension-upgrade?tabs=azure-portal) extension upgrades.
    
-3. Decide if you will use an allow or block list to govern which extensions can be deployed to the Azure Arc Machiens
+3. Decide if you will use an allow or block list to govern which extensions can be deployed to the onboarded machines.
 
 ### Deployment
 1. Decide [how you will deploy the Azure Arc Connected Machine Agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/deployment-options#onboarding-methods). It is recommended to deploy the agent using the [deployment script generated](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-service-principal) by the Azure Portal. This script can then be deployed via custom automation or an [enterprise solution like SCCM](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-configuration-manager-custom-task#create-a-task-sequence).  The agent must be deployed using an administrator for Windows and a root account for Linux. 
