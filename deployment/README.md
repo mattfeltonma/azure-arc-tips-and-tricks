@@ -38,7 +38,7 @@
 1. If you are using Windows Active Directory Restricted Groups to restrict which security principals are granted the "Log On as a Service" user right, [you must ensure that "NT SERVICE\\himds" is included as a security principal with this user right](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#agent-security-and-permissions). This local machine identity is used by the Hybrid Instance Metadata Service.
 
 ## Setup of Azure Resources
-1. [Create an Azure AD Service Principal](https://learn.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli) which will be used to authenticate to Azure to onboard the machine to Azure Arc. This machine should be granted the Azure RBAC role named Azure Connected Machine Onboarding.
+1. [Create an Azure AD Service Principal](https://learn.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli) which will be used to authenticate to Azure to onboard the machine to Azure Arc. This service principal should be granted the Azure RBAC role named Azure Connected Machine Onboarding.
    
 2. **Private Link Only** [Create Private DNS Zones for the following zones](https://learn.microsoft.com/en-us/azure/azure-arc/servers/private-link-security#dns-configuration-using-azure-integrated-private-dns-zones)
 	1. privatelink.his.arc.azure.com
