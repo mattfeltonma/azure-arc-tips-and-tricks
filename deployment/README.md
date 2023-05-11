@@ -61,7 +61,7 @@
 8. Create a resource group in your preferred Azure region in the Azure subcription you want the Azure Arc Server objects to be deployed to.
    
 9. Generate onboarding script
-	* [Generate onboarding script when not using Private Link connectivity model](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-portal#generate-the-installation-script-from-the-azure-portal
+	* [Generate onboarding script when not using Private Link connectivity model](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-portal#generate-the-installation-script-from-the-azure-portal)
 	* **Private Link Only** [Generate onboarding script when using Private Link connectivity model](https://learn.microsoft.com/en-us/azure/azure-arc/servers/private-link-security#configure-a-new-azure-arc-enabled-server-to-use-private-link)
 
 ## Installation of Azure Connected Machine Agent
