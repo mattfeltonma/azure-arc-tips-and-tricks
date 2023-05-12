@@ -94,7 +94,7 @@
 
 3. Download the MSI package for the agent and install it [manually on a non-production machine](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows). If using a proxy, configure the proxy with the commands in step 1. Validate the machine is capable of reaching the required endpoints using [azmcagent check](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent?tabs=windows#check). 
    
-	**Private Link Only** There is an additional parameter you must specify if you are using Private Link
+	**Private Link Only** There is an [additional parameter](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent?tabs=windows#check) you must specify if you are using Private Link
 	
 4.  [Manually onboard the non-production machine by running your deployment script](https://learn.microsoft.com/en-us/azure/azure-arc/servers/onboard-portal). Validate that the service principal is able to onboard the machine and that the machine appears in the Portal.
 
