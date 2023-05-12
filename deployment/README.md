@@ -112,9 +112,9 @@
    
 	A system-assigned managed identity (SMI) is created for each server onboarded for Azure Arc. This SMI is used by the agent to obtain access tokens from Azure Active Directory to access Azure services. This capability in provided by the Hybrid Instance Metadata Service (HIMDS) that runs on the onboarded machine. 
 	
-	Members of the Hybrid agent extension applications local group can obtain access tokens from Azure AD for the machine's SMI allowing that application to exercise the permissions granted to the SMI. 
+	Members of the Hybrid agent extension applications local group can obtain access tokens from Azure AD for the machine's SMI allowing that application to exercise the permissions in Azure granted to the SMI. 
 	
-	It is best practice to secure the membership to this group to ensure ony authorized applications are capable of obtaining an access token.
+	It is best practice to secure the membership to this group to ensure only authorized applications are capable of obtaining an access token.
 	
 3. Deploy the Azure Connected Machine Agent to a non-production machine first. Validate the agent can be successfully deployed using the service principal you have provisioned. Also validate that the Azure Connected Machine Agent and additional extensions you may use do not interfer with existing 3rd party agents you may be using.
    
