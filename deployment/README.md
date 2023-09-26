@@ -116,7 +116,7 @@
 	
 	It is best practice to secure the membership to this group to ensure only authorized applications are capable of obtaining an access token.
 	
-3. Deploy the Azure Connected Machine Agent to a non-production machine first. Validate the agent can be successfully deployed using the service principal you have provisioned. Also validate that the Azure Connected Machine Agent and additional extensions you may use do not interfer with existing 3rd party agents you may be using.
+3. Deploy the Azure Connected Machine Agent to a non-production machine first. Validate the agent can be successfully deployed using the service principal you have provisioned. Also validate that the Azure Connected Machine Agent and additional extensions you may use do not interfere with existing 3rd party agents you may be using.
    
-4. Deploy the Azure Connected Machine Agent in batches. Ensure you incorporate some type of validationg testing such as using the agent's built in [connectivity checker](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent?tabs=windows#check) and validating in the Portal the machine is connected.
+4. Deploy the Azure Connected Machine Agent in batches. Ensure you incorporate some type of validation testing such as using the agent's built in [connectivity checker](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent?tabs=windows#check) and validating in the Portal the machine is connected.
 
