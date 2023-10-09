@@ -27,13 +27,13 @@ There are [specific regional limitations when using Private Link](https://learn.
 	**NOTE - The service principal credentials are stored in the script by default. It is recommended to store and retrieve this credential from an enterprise secret management solution if available.**
    
 ## Prerequisites
-1. Validate the operating system of the machines you are planning to onboard is a [supported operating system for Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-operating-systems). There is a [subset of endpoints](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#subset-of-endpoints-for-esu-only) required if you only intend to use Azure Arc for Extended Security Updates.
+1. Validate the operating system of the machines you are planning to onboard is a [supported operating system for Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-operating-systems). 
    
 2. Validate that the [feature you wish to use is supported](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-vm-extensions#operating-system-extension-availability) on the operating system.
    
 3. [Validate the URLs the agent will need access to](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) based upon the features you have choosen to use.
    
-4. Validate you have opened the appropriate firewall rules [to allow traffic to the required endpoints](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) to onboard the Azure Connected Machine Agent and relevant Azure Arc features you decided to use.
+4. Validate you have opened the appropriate firewall rules [to allow traffic to the required endpoints](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#urls) to onboard the Azure Connected Machine Agent and relevant Azure Arc features you decided to use. There is a [subset of endpoints](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#subset-of-endpoints-for-esu-only) required if you only intend to use Azure Arc for Extended Security Updates.
    
 5. Validate if the machines being onboarded use a proxy. If the machines do use a proxy, then determine if the proxy requires authentication. If so, you will need to bypass the authentication for the required Azure Arc endpoints. [The Azure Arc Connected Machine Agent does not support authenticated proxies](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-agent?tabs=windows#update-or-remove-proxy-settings)
 
