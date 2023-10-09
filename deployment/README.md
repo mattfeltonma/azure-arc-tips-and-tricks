@@ -3,7 +3,8 @@
 
 ## Decisions
 ### General
-1. Decide [which features (and corresponding extensions) of the Azure Arc for Servers](https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview#supported-cloud-operations) offering that you will use.
+
+1. Decide if you plan to use the [Guest Configuration](https://learn.microsoft.com/en-us/azure/architecture/hybrid/azure-arc-hybrid-config#enable-azure-policy-guest-configuration) feature and [which extensions you will require for the features you plan to use](https://learn.microsoft.com/en-us/azure/azure-arc/servers/overview#supported-cloud-operations).
    
 2. Decide which subscription, region, and resource group the Azure Arc Server resources will be stored in.
 
@@ -23,7 +24,7 @@
 	**NOTE - The service principal credentials are stored in the script by default. It is recommended to store and retrieve this credential from an enterprise secret management solution if available.**
    
 ## Prerequisites
-1. Validate the operating system of the machines you are planning to onboard is a [supported operating system for Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-operating-systems). 
+1. Validate the operating system of the machines you are planning to onboard is a [supported operating system for Azure Arc](https://learn.microsoft.com/en-us/azure/azure-arc/servers/prerequisites#supported-operating-systems). There is a [subset of endpoints](https://learn.microsoft.com/en-us/azure/azure-arc/servers/network-requirements?tabs=azure-cloud#subset-of-endpoints-for-esu-only) required if you only intend to use Azure Arc for Extended Security Updates.
    
 2. Validate that the [feature you wish to use is supported](https://learn.microsoft.com/en-us/azure/azure-arc/servers/manage-vm-extensions#operating-system-extension-availability) on the operating system.
    
@@ -102,9 +103,9 @@
 
 ## Best Practices
 
-1. There are a wide range of extensions available for onboarded machines. This author recommends governing which extensions can be deployed using the [allow and block list capability of the Azure Connected Machine Agent](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls)
+1. There are a wide range of features available for onboarded machines. This author recommends governing which features can be enabled for machines onboarded to Azure Arc. Features like [Guest Configuration should be disabled](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#enable-or-disable-guest-configuration) if it will not be used. You should [control which extensions can be deployed to the machine](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls).
    
-	Some Azure Arc extensions allow for the Azure management plane to modify the operating system of the onboarded server. These extensions include the Custom Script and Hybrid Runbook extensions. If this is not desired, these extensions should be blocked from being deployed.
+	Some Azure Arc features and extensions allow for the Azure management plane to modify the operating system of the onboarded server. The Guest Configuration feature is an example of such a feature. Extensions such as the Custom Script and Hybrid Runbook extensions are other examples. If this is not desired, the features should be disabled and the extensions should be disallowed.
 	
 	When governing extensions, it is best practice to use an allow list versus a deny list.
 	
