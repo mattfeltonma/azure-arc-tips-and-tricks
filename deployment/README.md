@@ -8,6 +8,9 @@
    
 2. Decide which subscription, region, and resource group the Azure Arc Server resources will be stored in.
 
+**Private Link Only** 
+There are [specific regional limitations when using Private Link](https://learn.microsoft.com/en-us/azure/azure-arc/servers/private-link-security#restrictions-and-limitations) which must be taken into consideration.
+
 ### Connectivity
 1. Decide if you will use [Private Link connectivity](https://learn.microsoft.com/en-us/azure/azure-arc/servers/private-link-security) for the Azure Arc Connected Machine agent.
    
