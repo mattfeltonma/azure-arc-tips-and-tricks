@@ -106,11 +106,13 @@ There are [specific regional limitations when using Private Link](https://learn.
 
 ## Best Practices
 
-1. There are a wide range of features available for onboarded machines. This author recommends governing which features can be enabled for machines onboarded to Azure Arc. Features like [Guest Configuration should be disabled](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#enable-or-disable-guest-configuration) if it will not be used. You should [control which extensions can be deployed to the machine](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls).
+1. There are a wide range of features available for onboarded machines. This author recommends governing which features can be enabled for machines onboarded to Azure Arc. Features like [Guest Configuration should be disabled](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#enable-or-disable-guest-configuration) if it will not be used. You should [control which extensions can be deployed to the machine](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#local-agent-security-controls). If you're using Azure Arc for only Extended Support Updates you can ]block all extensions with the Azure Connected Machine Agent version 1.35 and above](https://learn.microsoft.com/en-us/azure/azure-arc/servers/security-overview#extension-allowlists-and-blocklists).
    
 	Some Azure Arc features and extensions allow for the Azure management plane to modify the operating system of the onboarded server. The Guest Configuration feature is an example of such a feature. Extensions such as the Custom Script and Hybrid Runbook extensions are other examples. If this is not desired, the features should be disabled and the extensions should be disallowed.
 	
 	When governing extensions, it is best practice to use an allow list versus a deny list.
+
+	Azure Policy can be used to audit the status of extensions installed on an Azure Arc connected machines. [This policy is an example](https://github.com/mattfeltonma/azure-custom-policies/tree/master/Arc/audit-allow-extensions) where the policy reports Azure Arc connected machines as non-compliant if they allow for extensions to be deployed.
 	
 2. Secure the group membership to the [Hybrid agent extension applications local group](https://learn.microsoft.com/en-us/azure/azure-arc/servers/agent-overview#windows-agent-installation-details) on each Azure Arc onboarded server. 
    
